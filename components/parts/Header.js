@@ -1,11 +1,7 @@
-var React = require('react');
+import React from 'react';
 
-var Header = React.createClass({
-    propTypes: {
-        title: React.PropTypes.string.isRequired,
-        status: React.PropTypes.string.isRequired
-    },
-    render(){
+class Header extends React.Component {
+    render() {
         let status;
         if (this.props.status == 'connected') {
             status = <span className="glyphicon glyphicon glyphicon-record status connected" aria-hidden="true"></span>
@@ -28,6 +24,15 @@ var Header = React.createClass({
             </header>
         );
     }
-});
+}
+
+Header.propTypes = {
+    title: React.PropTypes.string.isRequired,
+    status: React.PropTypes.string.isRequired
+};
+
+Header.defaultProps = {
+    status: 'disconnected'
+};
 
 module.exports = Header;

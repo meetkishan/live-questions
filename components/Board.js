@@ -1,7 +1,8 @@
-var React = require('react');
-var Display = require('./parts/Display');
-var d3 = require('d3');
-var BarChart = require('react-d3-components').BarChart;
+import React from 'react';
+import Display from './parts/Display';
+import {BarChart} from 'react-d3-components';
+import d3 from 'd3';
+
 var Board = React.createClass({
     barGraphData(results){
         var data = [];

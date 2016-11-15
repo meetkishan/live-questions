@@ -1,14 +1,15 @@
-var React = require('react');
+import React from 'react';
 
-var JoinSpeaker = React.createClass({
-    start(){
+class JoinSpeaker extends React.Component {
+    start() {
         var speakerName = this.refs.name.value;
         var title = this.refs.title.value;
         this.props.emit('start', {name: speakerName, title: title});
-    },
-    render(){
+    }
+
+    render() {
         return (
-            <form action="javascript:void(0)" onSubmit={this.start}>
+            <form action="javascript:void(0)" onSubmit={this.start.bind(this)}>
                 <label>Full name</label>
                 <input ref="name"
                        className="form-control"
@@ -24,6 +25,7 @@ var JoinSpeaker = React.createClass({
             </form>
         );
     }
-});
+}
+
 
 module.exports = JoinSpeaker;

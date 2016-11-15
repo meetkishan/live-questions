@@ -1,53 +1,52 @@
-var React = require('react');
-var Display = require('./Display');
-var Ask = React.createClass({
+import React from 'react';
+import Display from './Display';
+class Ask extends React.Component {
 
-    getInitialState(){
-        return {
-            choices: [],
-            answer: undefined
-        }
-    },
+    constructor(props) {
+        super(props);
+        this.addChoiceButton = this.addChoiceButton.bind(this);
+        this.setupChoices = this.setupChoices.bind(this);
+    }
 
-    componentWillMount(){
+    componentWillMount() {
         this.setupChoices();
-    },
+    }
 
-    componentWillReceiveProps(){
+    componentWillReceiveProps() {
         this.setupChoices();
-    },
+    }
 
-    setupChoices(){
+    setupChoices() {
         var choices = Object.keys(this.props.question);
         choices.shift();
         this.setState({
             choices: choices,
             answer: sessionStorage.answer
         });
-    },
+    }
 
-    select(choice){
+    select(choice) {
         this.setState({answer: choice});
         sessionStorage.answer = choice;
         this.props.emit('answer', {
             question: this.props.question,
             choice: choice
         });
-    },
+    }
 
-    addChoiceButton(choice, i){
+    addChoiceButton(choice, i) {
         var buttonTypes = ['primary', 'success', 'warning', 'danger'];
 
         return (
             <button key={i}
                     className={"col-xs-12 col-sm-6 btn btn-" + buttonTypes[i]}
-                    onClick={this.select.bind(null,choice)}>
+                    onClick={this.select.bind(this,choice)}>
                 {choice} : {this.props.question[choice]}
             </button>
         );
-    },
+    }
 
-    render(){
+    render() {
         return (
             <div id="currentQuestion">
                 <Display if={this.state.answer}>
@@ -61,11 +60,14 @@ var Ask = React.createClass({
                         {this.state.choices.map(this.addChoiceButton)}
                     </div>
                 </Display>
-
             </div>
 
         );
     }
-});
+}
 
+Ask.getInitialState = {
+    choices: [],
+    answer: undefined
+};
 module.exports = Ask;

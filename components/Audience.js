@@ -1,10 +1,10 @@
-var React = require('react');
-var Display = require('./parts/Display');
-var Join = require('./parts/Join');
-var Ask = require('./parts/Ask');
+import React from 'react';
+import Display from './parts/Display';
+import Join from './parts/Join';
+import Ask from './parts/Ask';
 
-var Audience = React.createClass({
-    render(){
+class Audience extends React.Component {
+    render() {
         return (
             <div>
                 <Display if={this.props.status === 'connected'}>
@@ -14,7 +14,7 @@ var Audience = React.createClass({
                             <p>{ this.props.audience.length } viewers connected.</p>
                         </Display>
                         <Display if={this.props.currentQuestion}>
-                            <Ask question={this.props.currentQuestion} emit={this.props.emit} />
+                            <Ask question={this.props.currentQuestion} emit={this.props.emit}/>
                         </Display>
                     </Display>
 
@@ -26,6 +26,6 @@ var Audience = React.createClass({
             </div>
         );
     }
-});
+}
 
 module.exports = Audience;

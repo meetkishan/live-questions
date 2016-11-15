@@ -1,13 +1,13 @@
 import React from 'react'
 import {render} from 'react-dom'
+import APP from './components/APP';
+import Audience from './components/Audience';
+import Speaker from './components/Speaker';
+import Board from './components/Board';
+import Whoops404 from './components/Whoops404';
+
 import {Router, Route, hashHistory, IndexRoute} from 'react-router'
 
-
-var APP = require('./components/APP');
-var Audience = require('./components/Audience');
-var Speaker = require('./components/Speaker');
-var Board = require('./components/Board');
-var Whoops404 = require('./components/Whoops404');
 
 var routes = (
     <Router history={hashHistory}>
