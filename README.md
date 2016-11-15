@@ -9,6 +9,7 @@ Go for live Questioning and quick results.
     ```sh
     $ npm install -g react
     $ npm install -g babel
+    $ npm install -g webpack
     ```
   - Install all dependences and start server
     ```sh

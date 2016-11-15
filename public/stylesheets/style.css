@@ -29,3 +29,23 @@ a {
   background: #bce8ff;
   cursor: pointer;
 }
+
+.axis {
+  fill: none;
+  stroke: #000;
+}
+
+.axis text {
+  font: 11px sans-serif;
+  fill: #000;
+  stroke: none;
+  font-weight: bold;
+}
+
+.axis line {
+  stroke: #ccc;
+}
+
+.axis path {
+  stroke: #ccc;
+}
